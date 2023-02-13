@@ -1,6 +1,4 @@
-package Modul6.calculator;
-
-import Modul6.calculator.Calculator;
+package com.kodilla.testing.calculator;
 
 public class TestingMain {
     public static void main(String[] args) {
