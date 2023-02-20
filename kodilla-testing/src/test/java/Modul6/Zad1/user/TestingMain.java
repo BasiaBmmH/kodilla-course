@@ -1,4 +1,4 @@
-package Modul6.user;
+package Modul6.Zad1.user;
 import Modul6.user.SimpleUser;
 
 public class TestingMain {
