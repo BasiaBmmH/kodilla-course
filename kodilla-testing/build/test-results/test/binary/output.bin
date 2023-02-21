@@ -1,0 +1,15 @@
+
+Test Case: Start
+Expected: []
+ Reality: []
+Test Case: End
+
+Test Case: Start
+Expected: [12, 24, 22]
+ Reality: [12, 24, 22]
+Test Case: End
+
+Test Case: Start
+Expected: [12, 10, 20]
+ Reality: [12, 10, 20]
+Test Case: End
