@@ -54,8 +54,8 @@ public class CollectionTestSuite {
         OddNumbersExterminator.exterminate(num2);
 
         //Then
-        System.out.println("Expected: [12, 10, 20]");
-        System.out.println(" Reality: " + OddNumbersExterminator.exterminate(num2));
+        // TODO change to Assertion assertEquals check
+        Assertions.assertEquals(List.of(12,10,44),result);
     }
 
     @DisplayName("przypadek z Arrays.asList()")
@@ -67,11 +67,10 @@ public class CollectionTestSuite {
 
 
         //When
-        OddNumbersExterminator.exterminate(list);
+       List <Integer> result = OddNumbersExterminator.exterminate(list);
 
         //Then
-        System.out.println("Expected: [12, 24, 22]");
-        System.out.println(" Reality: " + OddNumbersExterminator.exterminate(list));
+        Assertions.assertEquals(List.of(12,24,22),result);
     }
 
 
