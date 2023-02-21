@@ -1,13 +1,11 @@
 package com.kodilla.testing.collection;
 
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 
 import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
+
+import static java.util.Collections.emptyList;
 
 public class CollectionTestSuite {
 
@@ -27,14 +25,13 @@ public class CollectionTestSuite {
     @Test
     void testOddNumbersExterminatorEmptyList() {
         //Given
-        List<Integer> num = new LinkedList<>();
+        List<Integer> emptyList = emptyList();
 
         //When
-        OddNumbersExterminator.exterminate(num);
+        List<Integer> result = OddNumbersExterminator.exterminate(emptyList);
 
         //Then
-        System.out.println("Expected: []");
-        System.out.println(" Reality: " + OddNumbersExterminator.exterminate(num));
+        Assertions.assertEquals(emptyList(), result);
     }
 
     @DisplayName("czy klasa zachowuje się poprawnie" +
@@ -42,16 +39,13 @@ public class CollectionTestSuite {
     @Test
     void testOddNumbersExterminatorNormalList() {
         //Given
-        List<Integer> num2 = new LinkedList<>();
-        num2.add(12);
-        num2.add(10);
-        num2.add(3);
-        num2.add(13);
-        num2.add(21);
-        num2.add(20);
+        // TODO change to Arrays.asList annotation
+        List<Integer> num2 = Arrays.asList(12,10,3,7, 21, 44);
+
 
         //When
-        OddNumbersExterminator.exterminate(num2);
+        // TODO get results of tested method
+        List<Integer> result = OddNumbersExterminator.exterminate(num2);
 
         //Then
         // TODO change to Assertion assertEquals check
@@ -62,8 +56,7 @@ public class CollectionTestSuite {
     @Test
     void testOddNumbersExterminatorArraysAsList() {
         //Given
-        Integer num [] = new Integer[] {1,3,12,21,24,55,67,89,71,22};
-        List<Integer> list = Arrays.asList(num);
+        List<Integer> list = Arrays.asList(1, 3, 12, 21, 24, 55, 67, 89, 71, 22);
 
 
         //When

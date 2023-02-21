@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.collection.CollectionTestSuite" tests="3" skipped="0" failures="0" errors="0" timestamp="2023-02-21T18:45:44" hostname="BMMH-WINDELL-2E" time="0.064">
+  <properties/>
+  <testcase name="czy klasa zachowuje siÄ™ poprawnie, gdy lista jest pusta" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.048"/>
+  <testcase name="przypadek z Arrays.asList()" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.003"/>
+  <testcase name="czy klasa zachowuje siÄ™ poprawniegdy lista zawiera liczby parzyste i nieparzyste" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.007"/>
+  <system-out><![CDATA[
+Test Case: Start
+Test Case: End
+
+Test Case: Start
+Test Case: End
+
+Test Case: Start
+Test Case: End
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
