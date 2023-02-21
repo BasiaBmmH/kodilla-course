@@ -1,5 +1,5 @@
 package Modul6.Zad1.user;
-import Modul6.user.SimpleUser;
+import Modul0_6.Modul6.user.SimpleUser;
 
 public class TestingMain {
 

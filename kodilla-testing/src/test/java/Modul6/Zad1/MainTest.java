@@ -1,5 +1,6 @@
 package Modul6.Zad1;
 
+import Modul0_6.Modul6.Zad1.Main;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
