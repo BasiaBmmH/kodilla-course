@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Nested Tests for posts" tests="4" skipped="0" failures="0" errors="0" timestamp="2023-02-26T00:11:43" hostname="BMMH-WINDELL-2E" time="0.013">
+  <properties/>
+  <testcase name="testRemovePostNotExisting()" classname="com.kodilla.testing.forum.tdd.ForumTestSuite$TestPosts" time="0.002"/>
+  <testcase name="testAddPost()" classname="com.kodilla.testing.forum.tdd.ForumTestSuite$TestPosts" time="0.002"/>
+  <testcase name="Nested Tests for posts" classname="com.kodilla.testing.forum.tdd.ForumTestSuite$TestPosts" time="0.002"/>
+  <testcase name="testRemovePost()" classname="com.kodilla.testing.forum.tdd.ForumTestSuite$TestPosts" time="0.001"/>
+  <system-out><![CDATA[Preparing to execute test #5
+Preparing to execute test #6
+Preparing to execute test #7
+Preparing to execute test #8
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
