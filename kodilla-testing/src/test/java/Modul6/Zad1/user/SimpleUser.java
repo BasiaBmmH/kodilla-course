@@ -1,4 +1,4 @@
-package com.kodilla.testing.user;
+package Modul6.Zad1.user;
 
 public class SimpleUser {
 

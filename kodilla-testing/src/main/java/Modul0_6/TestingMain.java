@@ -1,4 +1,4 @@
-package com.kodilla.testing;
+package Modul0_6;
 
 public class TestingMain {
     public static void main(String[] args) {

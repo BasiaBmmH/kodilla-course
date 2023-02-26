@@ -1,5 +1,5 @@
 package com.kodilla.testing.forum;
-import com.kodilla.testing.user.SimpleUser;
+import Modul6.Zad1.user.SimpleUser;
 
 import org.junit.jupiter.api.*;
 
