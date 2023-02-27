@@ -2,7 +2,13 @@ package com.kodilla.testing.shape;
 
 public class Square implements Shape {
 
-    public Square() {
+    private double height;
+    private double side;
+
+
+    public Square(double height, double side) {
+        this.height = height;
+        this.side = side;
     }
 
     @Override
@@ -11,7 +17,17 @@ public class Square implements Shape {
     }
 
     @Override
-    public void getField(int x) {
+    public void getField(Object object) {
+        double field = (Square) object.getHeght()*object.getSide();
+        System.out.println(field);
 
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getSide() {
+        return side;
     }
 }

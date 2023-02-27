@@ -4,7 +4,7 @@ public interface Shape {
 
     public String getShapeName();
 
-    public void getField(int x);
+    public void getField(Object object);
 
 
 }

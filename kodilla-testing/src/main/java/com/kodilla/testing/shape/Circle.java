@@ -1,8 +1,10 @@
 package com.kodilla.testing.shape;
 
 public class Circle implements Shape {
+    private double radius;
 
-    public Circle() {
+    public Circle(double radius) {
+        this.radius = radius;
     }
 
     public String getShapeName() {
@@ -10,8 +12,10 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void getField(int x) {
+    public void getField(Object object) {
+
 
     }
+
 
 }
