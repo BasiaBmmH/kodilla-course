@@ -1,4 +1,5 @@
 package com.kodilla.testing.shape;
+
 public class Triangle implements Shape {
     private double side;
     private double height;
@@ -15,10 +16,9 @@ public class Triangle implements Shape {
     }
 
     @Override
-    public void getField(Object object) {
-        double field = ((Triangle) object.getSide() * (Triangle) object.getHeight()) / 2;
-        System.out.println(field);
-
+    public double getField(Object objectt) {
+        Triangle object = (Triangle) objectt;
+        return (object.getSide() * object.getHeight()) / 2;
     }
 
     public double getSide() {

@@ -1,13 +1,11 @@
 package com.kodilla.testing.shape;
 
-public class Square implements Shape {
+import static java.lang.StrictMath.pow;
 
-    private double height;
+public class Square implements Shape {
     private double side;
 
-
-    public Square(double height, double side) {
-        this.height = height;
+    public Square(double side) {
         this.side = side;
     }
 
@@ -17,14 +15,9 @@ public class Square implements Shape {
     }
 
     @Override
-    public void getField(Object object) {
-        double field = (Square) object.getHeght()*object.getSide();
-        System.out.println(field);
-
-    }
-
-    public double getHeight() {
-        return height;
+    public double getField(Object object) {
+        Square square = (Square) object;
+        return pow(square.getSide(), 2);
     }
 
     public double getSide() {

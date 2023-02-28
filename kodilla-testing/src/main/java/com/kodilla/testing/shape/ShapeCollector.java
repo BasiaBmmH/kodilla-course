@@ -7,24 +7,22 @@ public class ShapeCollector {
 
     private List<Object> figures = new ArrayList<>();
 
-    private static void addToList(Object figure) {
-
-
+    public void addFigure(Shape shape) {
+        this.figures.add(shape);
     }
 
-    private static void deleteFromList(Object figure) {
-
-
+// TODO dwa testy
+    public void removeFigure(Shape shape) {
+        this.figures.remove(shape);
+    }
+    // TODO jeszcze jeden test
+    public Shape getFigure(int iNumber) {
+        return this.figures.get(iNumber);
     }
 
-    private static void takeFromI(int iNumber) {
-
-
-    }
-
-    private static void giveNames() {
-
-
+// TODO dwa testy
+    public void showFigures() {
+        System.out.println(this.figures);
     }
 
 }

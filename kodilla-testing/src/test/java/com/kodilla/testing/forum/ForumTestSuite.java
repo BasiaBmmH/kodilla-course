@@ -29,14 +29,14 @@ class ForumTestSuite {
     )
     @Test
     void testCaseRealName() {
-        //Given
-        SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
         //When
         String result = simpleUser.getRealName();
         System.out.println("Testing " + result);
         //Then
         Assertions.assertEquals("John Smith", result);
     }
+    //Given
+        SimpleUser simpleUser = new SimpleUser("theForumUser", "John Smith");
 
     @DisplayName("when create SimpleUser with name, " +
             "then getUsername should return correct name"

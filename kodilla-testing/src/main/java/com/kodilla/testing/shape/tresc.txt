@@ -1,0 +1,16 @@
+
+zwracającą nazwy wszystkich figur w postaci jednego Stringa.
+Aby przygotować rozwiązanie zadania:
+
+Napisz testy sprawdzające metody klasy ShapeCollector. W swoich testach wykorzystaj klasy wewnętrzne i adnotacje @Nested oraz @DisplayName.
+
+
+----questions:
+1. czemu najpierw trzeba tworzyć obiekt, w którym zrobimy konwersję na inny,
+    zamiast zrobić to w jednym ciągu np. przy obliczeniach
+
+2. skoro metody niestatyczne muszą być wywoływane na konkretnych obiektach(i czy to na pewno tak jest),
+    to jak się odwołać do konkretnej rzeczy, trzeba metode zmienić na static i dodwać do każdej, z której listy korzystać,
+    czy da się to jakoś obejść
+
+3. jak zapisać listę w jednym Stringu? Uzyć toString, czy jakiś inny sposób?q

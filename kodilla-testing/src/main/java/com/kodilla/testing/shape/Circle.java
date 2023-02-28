@@ -1,5 +1,7 @@
 package com.kodilla.testing.shape;
 
+import static java.lang.Math.pow;
+
 public class Circle implements Shape {
     private double radius;
 
@@ -17,5 +19,7 @@ public class Circle implements Shape {
 
     }
 
-
+    public double getRadius() {
+        return radius;
+    }
 }
