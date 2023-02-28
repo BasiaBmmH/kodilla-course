@@ -14,9 +14,16 @@ public class Circle implements Shape {
     }
 
     @Override
-    public void getField(Object object) {
-
-
+    public double getField(Object object) {
+        if (object instanceof Circle) {
+            Circle circle = (Circle) object;
+            double shapeField = pow((3.14 * circle.getRadius()), 2);
+            System.out.println("[CIRCLE] getField" + shapeField);
+            return shapeField;
+        } else {
+            System.out.println("[CIRCLE] error field is not a circle");
+            return 0;
+        }
     }
 
     public double getRadius() {
