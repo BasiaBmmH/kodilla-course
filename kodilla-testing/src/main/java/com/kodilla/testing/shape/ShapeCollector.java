@@ -21,8 +21,14 @@ public class ShapeCollector {
     }
 
 // TODO dwa testy
-    public void showFigures() {
-        System.out.println(this.figures);
+    //
+//    public void showFigures() {
+//        System.out.println(this.figures);
+//    }
+    public String showFigures() {
+        return "ShapeCollector{" +
+                "figures=" + this.figures.get() +
+                '}';
     }
 
 }

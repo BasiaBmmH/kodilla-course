@@ -28,6 +28,27 @@ public class ShapeCollectorTestSuite {
         Assertions.assertEquals("circle", figureAtFirstIndex.getShapeName());
     }
 
+    @DisplayName("test testAddFigureToList")
+    @Test
+    public void testAddFigure() {
+        //given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape shape1 = new Circle (3.12);
+        Shape shape2 = new Triangle (2.1,3);
+        Shape shape3 = new Square (4);
+
+
+        //when
+        shapeCollector.addFigure(shape1);
+        shapeCollector.addFigure(shape2);
+        shapeCollector.addFigure(shape3);
+
+
+        //then
+        Assertions.assertEquals(    ,   );
+        Assertions.assertEquals(    ,   );
+    }
+
 
 
 }
