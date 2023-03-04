@@ -6,10 +6,12 @@ import org.junit.jupiter.api.Test;
 
 public class ShapeCollectorTestSuite {
 
-    /** Napisz testy sprawdzające metody klasy ShapeCollector.
-     W swoich testach wykorzystaj klasy wewnętrzne i adnotacje
-    @Nested oraz @DisplayName.
-    */
+    /**
+     * Napisz testy sprawdzające metody klasy ShapeCollector.
+     * W swoich testach wykorzystaj klasy wewnętrzne i adnotacje
+     *
+     * @Nested oraz @DisplayName.
+     */
 
     @DisplayName("test getFigureAtIndex")
     @Test
@@ -33,9 +35,9 @@ public class ShapeCollectorTestSuite {
     public void testAddFigure() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
-        Shape shape1 = new Circle (3.12);
-        Shape shape2 = new Triangle (2.1,3);
-        Shape shape3 = new Square (4);
+        Shape shape1 = new Circle(3.12);
+        Shape shape2 = new Triangle(2.1, 3);
+        Shape shape3 = new Square(4);
 
 
         //when
@@ -46,9 +48,27 @@ public class ShapeCollectorTestSuite {
 
         //then
         Assertions.assertEquals(    ,   );
-        Assertions.assertEquals(    ,   );
+        Assertions.assertEquals(    ,    );
     }
 
+    @DisplayName("test removeFigure")
+    @Test
+    public void testRemoveFigure() {
+        //given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape shape1 = new Circle(3.12);
+        Shape shape2 = new Triangle(2.1, 3);
+        Shape shape3 = new Square(4);
+
+        //when
+        shapeCollector.removeFigure(shape1);
+        shapeCollector.removeFigure(shape2);
+        shapeCollector.showFigures();
+
+        //then
+        Assertions.assertEquals(    ,   );
+        Assertions.assertEquals(    ,   );
+    }
 
 
 }

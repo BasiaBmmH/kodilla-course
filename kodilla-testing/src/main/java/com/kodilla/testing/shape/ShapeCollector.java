@@ -20,7 +20,7 @@ public class ShapeCollector {
         return this.figures.get(iNumber);
     }
 
-// TODO dwa testy
+//TODO dwa testy
     //
 //    public void showFigures() {
 //        System.out.println(this.figures);
