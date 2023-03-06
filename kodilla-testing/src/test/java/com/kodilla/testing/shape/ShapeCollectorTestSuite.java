@@ -7,9 +7,6 @@ import org.junit.jupiter.api.Test;
 public class ShapeCollectorTestSuite {
 
     /**
-     * Napisz testy sprawdzające metody klasy ShapeCollector.
-     * W swoich testach wykorzystaj klasy wewnętrzne i adnotacje
-     *
      * @Nested
      */
 
@@ -65,20 +62,23 @@ public class ShapeCollectorTestSuite {
         Shape shape3 = new Square(8);
 
         //when
+        shapeCollector.addFigure(shape1);
+        shapeCollector.addFigure(shape2);
+        shapeCollector.addFigure(shape3);
+
         shapeCollector.removeFigure(shape1);
         shapeCollector.removeFigure(shape2);
         shapeCollector.removeFigure(shape3);
 
         //then
-        Assertions.assertEquals(null, shape1.getShapeName());
-        Assertions.assertEquals(null, shape2.getShapeName());
-        Assertions.assertEquals(null, shape3.getShapeName());
-
+        Assertions.assertEquals(false, shapeCollector.getFigures().contains(shape1));
+        Assertions.assertEquals(false, shapeCollector.getFigures().contains(shape2));
+        Assertions.assertEquals(false, shapeCollector.getFigures().contains(shape3));
     }
 
     @DisplayName("test showFigures")
     @Test
-    public void TestShowFigures() {
+    public void testShowFigures() {
         //given
         ShapeCollector shapeCollector = new ShapeCollector();
         Shape shape1 = new Circle(4.12);
@@ -92,6 +92,6 @@ public class ShapeCollectorTestSuite {
 
         //then
         Assertions.assertEquals("circle triangle square ", shapeCollector.showFigures());
-
     }
+
 }
