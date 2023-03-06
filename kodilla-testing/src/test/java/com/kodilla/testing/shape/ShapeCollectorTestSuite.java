@@ -83,20 +83,23 @@ public class ShapeCollectorTestSuite {
             Shape shape1 = new Circle(4.12);
             Shape shape2 = new Triangle(2, 1.2);
             Shape shape3 = new Square(8);
-
-            //when
             shapeCollector.addFigure(shape1);
             shapeCollector.addFigure(shape2);
             shapeCollector.addFigure(shape3);
 
+            int collectorSizeBeforeRemoving = shapeCollector.getFigures().size();
+
+            //when
             shapeCollector.removeFigure(shape1);
             shapeCollector.removeFigure(shape2);
             shapeCollector.removeFigure(shape3);
 
             //then
-            Assertions.assertEquals(false, shapeCollector.getFigures().contains(shape1));
-            Assertions.assertEquals(false, shapeCollector.getFigures().contains(shape2));
-            Assertions.assertEquals(false, shapeCollector.getFigures().contains(shape3));
+            Assertions.assertEquals(3,collectorSizeBeforeRemoving);
+            Assertions.assertEquals(0,shapeCollector.getFigures().size());
+            Assertions.assertFalse(shapeCollector.getFigures().contains(shape1));
+            Assertions.assertFalse(shapeCollector.getFigures().contains(shape2));
+            Assertions.assertFalse(shapeCollector.getFigures().contains(shape3));
         }
     }
 
