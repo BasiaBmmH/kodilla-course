@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.kodilla.testing.shape.ShapeCollector.showFigures;
-
 public class ShapeCollectorTestSuite {
 
     /**
@@ -28,7 +26,7 @@ public class ShapeCollectorTestSuite {
         Shape figureAtZeroIndex = shapeCollector.getFigure(0);
         Shape figureAtFirstIndex = shapeCollector.getFigure(1);
         Shape figureAtSecondIndex = shapeCollector.getFigure(2);
-        showFigures();
+
         //then
         Assertions.assertEquals("square", figureAtZeroIndex.getShapeName());
         Assertions.assertEquals("circle", figureAtFirstIndex.getShapeName());
@@ -92,11 +90,8 @@ public class ShapeCollectorTestSuite {
         shapeCollector.addFigure(shape2);
         shapeCollector.addFigure(shape3);
 
-
         //then
-        Assertions.assertEquals("circle",    );
+        Assertions.assertEquals("circle triangle square ", shapeCollector.showFigures());
 
     }
-
-
 }

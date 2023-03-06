@@ -6,7 +6,6 @@ public interface Shape {
 
     public double getField(Object object);
 
-
 }
 
 
