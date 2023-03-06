@@ -11,7 +11,7 @@ public class ShapeCollector {
         this.figures.add(shape);
     }
 
-// TODO dwa testy
+    // TODO dwa testy
     public void removeFigure(Shape shape) {
         this.figures.remove(shape);
     }
@@ -20,15 +20,15 @@ public class ShapeCollector {
         return this.figures.get(iNumber);
     }
 
-//TODO dwa testy
-    //
-//    public void showFigures() {
-//        System.out.println(this.figures);
-//    }
+    //TODO dwa testy
+
     public String showFigures() {
-        return "ShapeCollector{" +
-                "figures=" + this.figures. +
-                '}';
+        String showFigures = "";
+        for (int i = 0; i < this.figures.size(); i++) {
+            showFigures = showFigures + this.figures.get(i).getShapeName() + " ";
+        }
+        return showFigures;
+
     }
 
 }

@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import static com.kodilla.testing.shape.ShapeCollector.showFigures;
+
 public class ShapeCollectorTestSuite {
 
     /**
@@ -20,13 +22,13 @@ public class ShapeCollectorTestSuite {
         ShapeCollector shapeCollector = new ShapeCollector();
         shapeCollector.addFigure(new Square(20));
         shapeCollector.addFigure(new Circle(40));
-        shapeCollector.addFigure(new Triangle(2.2,1.3));
+        shapeCollector.addFigure(new Triangle(2.2, 1.3));
 
         //when
         Shape figureAtZeroIndex = shapeCollector.getFigure(0);
         Shape figureAtFirstIndex = shapeCollector.getFigure(1);
         Shape figureAtSecondIndex = shapeCollector.getFigure(2);
-        shapeCollector.showFigures();
+        showFigures();
         //then
         Assertions.assertEquals("square", figureAtZeroIndex.getShapeName());
         Assertions.assertEquals("circle", figureAtFirstIndex.getShapeName());
@@ -71,8 +73,28 @@ public class ShapeCollectorTestSuite {
 
         //then
         Assertions.assertEquals(null, shape1.getShapeName());
+        Assertions.assertEquals(null, shape2.getShapeName());
+        Assertions.assertEquals(null, shape3.getShapeName());
+
+    }
+
+    @DisplayName("test showFigures")
+    @Test
+    public void TestShowFigures() {
+        //given
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Shape shape1 = new Circle(4.12);
+        Shape shape2 = new Triangle(2, 1.2);
+        Shape shape3 = new Square(8);
+
+        //when
+        shapeCollector.addFigure(shape1);
+        shapeCollector.addFigure(shape2);
+        shapeCollector.addFigure(shape3);
 
 
+        //then
+        Assertions.assertEquals("circle",    );
 
     }
 
