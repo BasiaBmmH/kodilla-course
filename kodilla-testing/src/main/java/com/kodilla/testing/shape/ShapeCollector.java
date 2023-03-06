@@ -15,7 +15,7 @@ public class ShapeCollector {
     public void removeFigure(Shape shape) {
         this.figures.remove(shape);
     }
-    // TODO jeszcze jeden test
+
     public Shape getFigure(int iNumber) {
         return this.figures.get(iNumber);
     }
@@ -27,7 +27,7 @@ public class ShapeCollector {
 //    }
     public String showFigures() {
         return "ShapeCollector{" +
-                "figures=" + this.figures.get() +
+                "figures=" + this.figures. +
                 '}';
     }
 
