@@ -10,7 +10,7 @@ public class ShapeCollectorTestSuite {
     @Nested
     @DisplayName("Test: get and add figures")
     class GetAndShowFigures {
-        @DisplayName("test getFigureAtIndex")
+        @DisplayName("test getFigure method at selected index")
         @Test
         public void testGetFigure() {
             //given
@@ -46,14 +46,15 @@ public class ShapeCollectorTestSuite {
             shapeCollector.addFigure(shape3);
 
             //then
-            Assertions.assertEquals("circle triangle square ", shapeCollector.showFigures());
+            Assertions.assertInstanceOf(Circle.class, shape1);
+            Assertions.assertEquals("circle triangle square ", shapeCollector.toString());
         }
     }
 
     @Nested
-    @DisplayName("Test: Add and removefigures")
+    @DisplayName("Test modify figures collection size")
     class TestAddRemoveFigure {
-        @DisplayName("test testAddFigureToList")
+        @DisplayName("test addFigure to list")
         @Test
         public void testAddFigure() {
             //given
@@ -61,18 +62,17 @@ public class ShapeCollectorTestSuite {
             Shape shape1 = new Circle(3.12);
             Shape shape2 = new Triangle(2.1, 3);
             Shape shape3 = new Square(4);
-
+            int collectorSizeBeforeAdd = shapeCollector.getFigures().size();
 
             //when
             shapeCollector.addFigure(shape1);
             shapeCollector.addFigure(shape2);
             shapeCollector.addFigure(shape3);
 
-
-            //then wypisze nazwy dodanych figur
-            Assertions.assertEquals("circle", shape1.getShapeName());
-            Assertions.assertEquals("triangle", shape2.getShapeName());
-            Assertions.assertEquals("square", shape3.getShapeName());
+            //then
+            Assertions.assertEquals(0, collectorSizeBeforeAdd);
+            Assertions.assertEquals(3, shapeCollector.getFigures().size());
+            Assertions.assertEquals(shape1.getShapeName(), shapeCollector.getFigure(0).getShapeName());
         }
 
         @DisplayName("test removeFigure")
