@@ -1,0 +1,5 @@
+Metoda opatrzona adnotacją @BeforeAll zostanie wykonana raz, przed uruchomieniem testów
+Metoda opatrzona adnotacją @BeforeEach będzie wykonywana za każdym razem, przed uruchomieniem testu
+Metody opatrzone adnotacją @Test będą wykonywane jeden po drugim, w celu sprawdzenia funkcjonalności
+Metoda opatrzona adnotacją @AfterEach będzie wykonywana za każdym razem po uruchomieniu testu
+Metoda opatrzona adnotacją @AfterAll zostanie wykonana raz, po uruchomieniu wszystkich testów
