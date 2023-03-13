@@ -25,32 +25,16 @@ public class WeatherForecast {
         return resultMap;
     }
 
-//    public double calculateAverage() {
-//        Map<String, Double> resultMap = new HashMap<>();
-//        double average = 0;
-//        for (Map.Entry<String, Double> temperature :
-//                temperatures.getTemperatures().entrySet()) {
-//            average = average + temperature.getValue();
-//        }
-//
-//        return average / resultMap.size();
-//    }
-
     public double calculateAverage() {
-        Collection<Double> values = temperatures.getTemperatures().values();
-
-        Double[] sorted = values.toArray(new Double[0]);
-        Arrays.sort(sorted);
-        double sum = 0;
-        for (int i = 0; i < sorted.length; i++) {
-            sum = sum + sorted[i];
-
+        double average = 0;
+        Map<String, Double> map = temperatures.getTemperatures();
+        for (Map.Entry<String, Double> temperature : map.entrySet()) {
+            average = average + temperature.getValue();
         }
-
-        return sum / sorted.length;
+        return map.isEmpty() ? 0.00 : average / map.size();
     }
 
-    public double calculateMedian() {
+    public double calculateMedian () {
         Collection<Double> values = temperatures.getTemperatures().values();
 
         Double[] sorted = values.toArray(new Double[0]);
@@ -68,4 +52,4 @@ public class WeatherForecast {
         return median;
     }
 
-}
+    }
