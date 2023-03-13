@@ -9,6 +9,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,35 +20,35 @@ class WeatherForecastTestSuite {
 
     @Mock
     private Temperatures temperaturesMock;
+    Map<String, Double> temperaturesMap = new HashMap<>();
 
     @BeforeEach
     void data() {
-        Map<String, Double> temperaturesMap = new HashMap<>();
         temperaturesMap.put("Rzeszow", 25.5);
         temperaturesMap.put("Krakow", 26.2);
         temperaturesMap.put("Wroclaw", 24.8);
         temperaturesMap.put("Warszawa", 25.2);
         temperaturesMap.put("Gdansk", 26.1);
-
-        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
     }
 
     @Test
     void testCalculateForecastWithMock() {
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
 
         //When
         int quantityOfSensors = weatherForecast.calculateForecast().size();
 
         //Then
-        Assertions.assertEquals(5, quantityOfSensors);
+        Assertions.assertEquals(temperaturesMap.size(), quantityOfSensors);
     }
 
     @Test
     void testCalculateAverage() {
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
 
         //When
         double average = weatherForecast.calculateAverage();
@@ -57,10 +58,26 @@ class WeatherForecastTestSuite {
 
     }
 
+
+    @Test
+    void testCalculateAverageForZeroForecasts() {
+        //Given
+        WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        when(temperaturesMock.getTemperatures()).thenReturn(Collections.emptyMap());
+
+        //When
+        double average = weatherForecast.calculateAverage();
+
+        //Then
+        Assertions.assertEquals(0.00, average);
+
+    }
+
     @Test
     void testCalculateMedian(){
         //Given
         WeatherForecast weatherForecast = new WeatherForecast(temperaturesMock);
+        when(temperaturesMock.getTemperatures()).thenReturn(temperaturesMap);
 
         //When
         double median = weatherForecast.calculateMedian();

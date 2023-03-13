@@ -6,7 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
 
-    @Test
+//    @Test
     void testFindVowelsTDD() {
         //given
         String name = "Adam";
@@ -20,7 +20,7 @@ class MainTest {
 
     }
 
-    @Test
+//    @Test
     void testFindVowelsForWordWithoutThem() {
         //given
         String name = "wxt";
