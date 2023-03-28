@@ -12,11 +12,18 @@ public class BookLibrary {
 
     public List<Book> listBooksWithCondition(String titleFragment) {
         List<Book> bookList = new ArrayList<>();
-        Book book = new Book("The book title", "The book author", 2000);
-        bookList.add(book);
-
-        // temporary returning list of one book
+        if (titleFragment.length() < 3) return bookList;
+        List<Book> resultList = libraryDatabase
+                .listBooksWithCondition(titleFragment);
+        if (resultList.size() > 20) return bookList;
+        bookList = resultList;
         return bookList;
     }
-    //...
+
+    //TODO wyciągnąć książki, które wypożyczył user
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+        // w idealnym świecie to sprawdzalibyśmy, czy osoba jest użytkownikiem tej biblioteki
+        return libraryDatabase.listBooksInHandsOf(libraryUser);
+    }
+
 }
