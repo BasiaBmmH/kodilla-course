@@ -20,8 +20,7 @@ public class BookLibrary {
         return bookList;
     }
 
-    //TODO wyciągnąć książki, które wypożyczył user
-    public List<Book> listBooksInHandsOf(LibraryUser libraryUser){
+    public List<Book> listBooksInHandsOf(LibraryUser libraryUser) {
         // w idealnym świecie to sprawdzalibyśmy, czy osoba jest użytkownikiem tej biblioteki
         return libraryDatabase.listBooksInHandsOf(libraryUser);
     }

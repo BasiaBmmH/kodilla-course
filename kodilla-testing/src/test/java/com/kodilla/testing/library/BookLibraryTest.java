@@ -64,5 +64,7 @@ class BookLibraryTest {
         //then
         Assertions.assertEquals(5, userBooks.size());
         Assertions.assertEquals(fiveBooks, userBooks);
+
+        //test skończony, dopisuję, żeby się pojawiło na githubie
     }
 }
