@@ -42,6 +42,7 @@ public class StremMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
 
+        //TODO 7.1 toUpperCase()
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
         System.out.println("\nPoem Beautifier results:");
