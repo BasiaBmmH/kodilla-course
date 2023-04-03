@@ -4,7 +4,7 @@ import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
-public class StremMain {
+public class StreamMain {
     public static void main(String[] args) {
         System.out.println("\nWelcome to module 7 - Stream");
 
@@ -28,7 +28,6 @@ public class StremMain {
         expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
         expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
         expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-
         /**
          Referencję do dowolnej metody statycznej klasy uzyskujemy poprzez użycie
          następującego zapisu:
@@ -41,16 +40,14 @@ public class StremMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
-
-        //TODO 7.1 toUpperCase()
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
         System.out.println("\nPoem Beautifier results:");
-       // poemBeautifier.beautify("poem", " beatifier", (text1, text2) -> text1 + "ABC" + toUpperCase(text2));
-        poemBeautifier.beautify("poem", " beatifier", (text1, text2) -> "ABC" + text1 + "ABC" + text2 + " aplication");
-        poemBeautifier.beautify("poem", " beatifier", (text1, text2) -> "~~ " + text1 + " ~~" + text2 + " ~~");
+        poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> text1 + "ABC" + text2.toUpperCase());
+        poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "ABC" + text1 + "ABC" + text2 + " aplication");
+        poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "~~ " + text1 + " ~~" + text2 + " ~~");
         poemBeautifier.beautify("Hi", " Bye", (text1, text2) -> "(～￣▽￣)～ " + text1 + " and " + text2 + " ¬_¬");
-        poemBeautifier.beautify("poem", " beatifier", (text1, text2) -> "^^" + text1 + text2 + "^^");
+        poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "^^" + text1 + text2 + "^^");
 
 
     }
