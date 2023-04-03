@@ -53,12 +53,13 @@ public class CalculateStatisticsTestSuite {
         //given
         CalculateStatistics calculateStatistics = new CalculateStatistics();
         Mockito.when(statistics.postsCount()).thenReturn(1000);
+        Mockito.when(statistics.commentsCount()).thenReturn(2000);
 
         //when
         calculateStatistics.calculateAdvStatistics(statistics);
 
         //then
-      //  Assertions.assertEquals(  );
+        Assertions.assertEquals(2.0, calculateStatistics.commentsAveragePerPost());
 
     }
 
@@ -75,7 +76,6 @@ public class CalculateStatisticsTestSuite {
         Assertions.assertEquals(0, 0);
 
     }
-
 
 
     @Test

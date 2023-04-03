@@ -37,10 +37,6 @@ public class CalculateStatistics implements Statistics {
         return postsCount();
     }
 
-    public int howManyComments() {
-        return commentsCount();
-    }
-
     public double postsAveragePerUser() {
         if (postsCount() == 0 || howManyUsers() == 0) return 0;
         return postsCount() / howManyUsers();
