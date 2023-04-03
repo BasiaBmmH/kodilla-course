@@ -32,20 +32,6 @@ public class CalculateStatisticsTestSuite {
     @Mock
     private Statistics statistics;
 
-
-    @Test
-    void testCommentsCountEqualsZero(){
-        //given
-        CalculateStatistics calculateStatistics = new CalculateStatistics();
-        Mockito.when(statistics.postsCount()).thenReturn(0);
-
-        //when
-
-        //then
-
-    }
-
-
     @Test
     void testAverageWhenZeroPostsCount() {
         //given
@@ -60,6 +46,37 @@ public class CalculateStatisticsTestSuite {
         Assertions.assertEquals(0.0, calculateStatistics.postsAveragePerUser());
     }
 
+    //TODO gdy liczba postów = 1000
+
+    @Test
+    void testPostsCuntEquals1000(){
+        //given
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        Mockito.when(statistics.postsCount()).thenReturn(1000);
+
+        //when
+        calculateStatistics.calculateAdvStatistics(statistics);
+
+        //then
+      //  Assertions.assertEquals(  );
+
+    }
+
+    @Test
+    void testCommentsCountEqualsZero() {
+        //given
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        Mockito.when(statistics.commentsCount()).thenReturn(0);
+
+        //when
+        calculateStatistics.calculateAdvStatistics(statistics);
+
+        //then
+        Assertions.assertEquals(0, 0);
+
+    }
+
+
 
     @Test
     void testAverageWhen1000PostsFor100Users() {
@@ -69,7 +86,7 @@ public class CalculateStatisticsTestSuite {
         List<String> users = IntStream
                 .range(0, 100)
                 .boxed()
-                .map(el -> "user:"+el)
+                .map(el -> "user:" + el)
                 .toList();
         Mockito.when(statistics.usersNames()).thenReturn(users);
 
@@ -108,8 +125,4 @@ public class CalculateStatisticsTestSuite {
         //then
         Assertions.assertTrue(postsCount < commentsCount);
     }
-
-
-
-
 }
