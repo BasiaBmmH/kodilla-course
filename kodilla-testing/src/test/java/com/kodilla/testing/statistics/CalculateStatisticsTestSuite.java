@@ -49,7 +49,7 @@ public class CalculateStatisticsTestSuite {
     //TODO gdy liczba postów = 1000
 
     @Test
-    void testPostsCuntEquals1000(){
+    void testPostsCountEquals1000And2000Comments() {
         //given
         CalculateStatistics calculateStatistics = new CalculateStatistics();
         Mockito.when(statistics.postsCount()).thenReturn(1000);
