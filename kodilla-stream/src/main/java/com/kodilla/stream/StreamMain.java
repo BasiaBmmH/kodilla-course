@@ -48,8 +48,19 @@ public class StreamMain {
         poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "~~ " + text1 + " ~~" + text2 + " ~~");
         poemBeautifier.beautify("Hi", " Bye", (text1, text2) -> "(～￣▽￣)～ " + text1 + " and " + text2 + " ¬_¬");
         poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "^^" + text1 + text2 + "^^");
-        poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "^^" + text1 + text2 + "^^");
+
+    }
 
 
+    // TO SAMO
+
+//    (a, b) -> {
+//        System.out.println("a" + "b");
+//        return a + b;
+//    }
+
+    private double sum(int a, int b) {
+        System.out.println("a" + "b");
+        return a + b;
     }
 }

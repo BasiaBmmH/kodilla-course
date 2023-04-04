@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" tests="7" skipped="0" failures="0" errors="0" timestamp="2023-04-03T16:46:19" hostname="BMMH-WINDELL-2E" time="3.193">
+  <properties/>
+  <testcase name="testPostsCountEquals1000And2000Comments()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="3.112"/>
+  <testcase name="PostsCountIsSmallerThanCommentsCount()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="0.011"/>
+  <testcase name="testAverageWhenZeroPostsCount()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="0.007"/>
+  <testcase name="testAverageWhen1000PostsFor100Users()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="0.019"/>
+  <testcase name="testCommentsCountEquals1000And5Users()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="0.007"/>
+  <testcase name="testCommentsCountEqualsZero()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="0.006"/>
+  <testcase name="PostsCountIsBiggerThanCommentsCount()" classname="com.kodilla.testing.statistics.CalculateStatisticsTestSuite" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

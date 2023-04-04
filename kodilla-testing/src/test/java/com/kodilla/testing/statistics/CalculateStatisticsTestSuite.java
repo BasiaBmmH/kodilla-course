@@ -64,6 +64,26 @@ public class CalculateStatisticsTestSuite {
     }
 
     @Test
+    void testCommentsCountEquals1000And5Users() {
+        //given
+        CalculateStatistics calculateStatistics = new CalculateStatistics();
+        Mockito.when(statistics.commentsCount()).thenReturn(1000);
+        List<String> users = IntStream
+                .range(0, 5)
+                .boxed()
+                .map(el -> "user:" + el)
+                .toList();
+        Mockito.when(statistics.usersNames()).thenReturn(users);
+
+        //when
+        calculateStatistics.calculateAdvStatistics(statistics);
+
+        //then
+        Assertions.assertEquals(200.0, calculateStatistics.commentsAveragePerUser());
+
+    }
+
+    @Test
     void testCommentsCountEqualsZero() {
         //given
         CalculateStatistics calculateStatistics = new CalculateStatistics();
