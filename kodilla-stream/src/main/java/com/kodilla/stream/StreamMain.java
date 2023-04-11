@@ -1,11 +1,16 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.beautifier.PoemBeautifier;
-import com.kodilla.stream.lambda.*;
-import com.kodilla.stream.reference.FunctionalCalculator;
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
+
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class StreamMain {
     public static void main(String[] args) {
+        /*
         System.out.println("\nWelcome to module 7 - Stream");
 
         SaySomething saySomething = new SaySomething();
@@ -28,11 +33,11 @@ public class StreamMain {
         expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
         expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
         expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
-        /**
-         Referencję do dowolnej metody statycznej klasy uzyskujemy poprzez użycie
-         następującego zapisu:
-         ClassName::methodName
-         */
+
+        // Referencję do dowolnej metody statycznej klasy uzyskujemy poprzez użycie
+        // następującego zapisu:
+        // ClassName::methodName
+
 
         System.out.println("\nCalculating expressions with method references");
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
@@ -49,9 +54,46 @@ public class StreamMain {
         poemBeautifier.beautify("Hi", " Bye", (text1, text2) -> "(～￣▽￣)～ " + text1 + " and " + text2 + " ¬_¬");
         poemBeautifier.beautify("poem", " beautifier", (text1, text2) -> "^^" + text1 + text2 + "^^");
 
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
+        */
+
+/*
+        People.getList().stream()
+                .map(s -> s.toUpperCase())
+                .forEach(System.out::println);
+
+        People.getList().stream()
+                .map(String::toUpperCase)
+                .forEach(s -> System.out.println(s));
+
+        System.out.println("\ndlugosc napisu > 11");
+        People.getList().stream()
+                .filter(s -> s.length() > 11)
+                .forEach(System.out::println);
+
+ */
+
+        Forum forum = new Forum();
+        Map<Integer, ForumUser> userMap = new HashMap<>();
+        List<ForumUser> filteredUsers = forum.getUserList().stream()
+                .filter(forumUser -> 'M' == forumUser.getSex())
+                //.filter(forumUser -> LocalDate.now().getYear() - 20 >= forumUser.getBirthDay().getYear());
+                .filter(forumUser -> LocalDate.now().minusYears(20).isAfter(forumUser.getBirthDay()))
+                .filter(forumUser -> forumUser.getPostsCount() > 0)
+                .toList();
+
+        //TODO zamienić na wywołanie kolektora z mapą w ramach powyższego streama
+        for(ForumUser user : filteredUsers) {
+            userMap.put(user.getId(), user);
+        }
+        System.out.println("User map: " + userMap.size());
+
+        //TODO stworzyć strumień sprawdzający czy liczba postów użytkownika jest parzysta i zwrócić mapę takich użytkowników { klucz -> liczba postów, wartość -> użytjo
     }
 
-
+/*
     // TO SAMO
 
 //    (a, b) -> {
@@ -62,5 +104,7 @@ public class StreamMain {
     private double sum(int a, int b) {
         System.out.println("a" + "b");
         return a + b;
-    }
+
+ */
 }
+
