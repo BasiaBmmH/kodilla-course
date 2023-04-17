@@ -4,13 +4,13 @@ import com.kodilla.stream.forumuser.Forum;
 import com.kodilla.stream.forumuser.ForumUser;
 
 import java.time.LocalDate;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        /*
+ /*
         System.out.println("\nWelcome to module 7 - Stream");
 
         SaySomething saySomething = new SaySomething();
@@ -58,8 +58,7 @@ public class StreamMain {
         System.out.println("Using Stream to generate even numbers from 1 to 20");
         NumbersGenerator.generateEven(20);
         */
-
-/*
+ /*
         People.getList().stream()
                 .map(s -> s.toUpperCase())
                 .forEach(System.out::println);
@@ -74,6 +73,30 @@ public class StreamMain {
                 .forEach(System.out::println);
 
  */
+ /*
+     BookDirectory theBookDirectory = new BookDirectory();
+
+       Map<String, Book> theResultMapOfBooks = theBookDirectory.getList().stream()
+          .filter(book -> book.getYearOfPublication() > 2005)
+          .collect(Collectors.toMap(Book::getSignature, book -> book));             // [1]
+
+       System.out.println("# elements: " + theResultMapOfBooks.size());             // [2]
+       theResultMapOfBooks.entrySet().stream()
+          .map(entry -> entry.getKey() + ": " + entry.getValue())                   // [3]
+          .forEach(System.out::println);
+
+         */
+ /*
+ public static void main(String[] args) {
+      BookDirectory theBookDirectory = new BookDirectory();
+      String theResultStringOfBooks = theBookDirectory.getList().stream()  // [1]
+         .filter(book -> book.getYearOfPublication() > 2005)
+         .map(Book::toString)
+         .collect(Collectors.joining(",\n","<<",">>"));                    // [2]
+
+         System.out.println(theResultStringOfBooks);
+  */
+
 
         Forum forum = new Forum();
         Map<Integer, ForumUser> userMap = new HashMap<>();
@@ -84,14 +107,30 @@ public class StreamMain {
                 .filter(forumUser -> forumUser.getPostsCount() > 0)
                 .toList();
 
-        //TODO zamienić na wywołanie kolektora z mapą w ramach powyższego streama
-        for(ForumUser user : filteredUsers) {
-            userMap.put(user.getId(), user);
-        }
+        firstUser.setSex('F');
+        Map<Integer, ForumUser> userMap = filteredUsers.stream()
+                .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
+
+
+        //FIXED zamienić na wywołanie kolektora z mapą w ramach powyższego streama
+//        for (ForumUser user : filteredUsers) {
+//            userMap.put(user.getId(), user);
+//        }
         System.out.println("User map: " + userMap.size());
 
-        //TODO stworzyć strumień sprawdzający czy liczba postów użytkownika jest parzysta i zwrócić mapę takich użytkowników { klucz -> liczba postów, wartość -> użytjo
-    }
+        userMap.entrySet().forEach(System.out::println);
+
+
+        Map<Integer, Integer> evenPostsCount = forum.getUserList()
+                .stream()
+                .filter(forumUser -> forumUser.getPostsCount() % 2 == 0)
+                .collect(Collectors.toMap(ForumUser::getId, ForumUser::getPostsCount));
+
+        System.out.println(evenPostsCount);
+
+        // FIXED stworzyć strumień sprawdzający czy liczba postów użytkownika jest parzysta i zwrócić mapę
+        // takich użytkowników { klucz -> liczba postów, wartość -> lista użytkowników
+
 
 /*
     // TO SAMO
@@ -106,5 +145,6 @@ public class StreamMain {
         return a + b;
 
  */
+    }
 }
 
