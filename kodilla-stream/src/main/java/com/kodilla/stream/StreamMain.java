@@ -97,7 +97,6 @@ public class StreamMain {
          System.out.println(theResultStringOfBooks);
   */
 
-
         Forum forum = new Forum();
         Map<Integer, ForumUser> userMap = new HashMap<>();
         List<ForumUser> filteredUsers = forum.getUserList().stream()
@@ -112,7 +111,7 @@ public class StreamMain {
                 .collect(Collectors.toMap(ForumUser::getId, forumUser -> forumUser));
 
 
-        //FIXED zamienić na wywołanie kolektora z mapą w ramach powyższego streama
+        // FIXED zamienić na wywołanie kolektora z mapą w ramach powyższego streama
 //        for (ForumUser user : filteredUsers) {
 //            userMap.put(user.getId(), user);
 //        }

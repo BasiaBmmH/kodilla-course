@@ -17,7 +17,6 @@ public class ForumUser {
         this.postsCount = postsCount;
     }
 
-
     public int getId() {
         return id;
     }

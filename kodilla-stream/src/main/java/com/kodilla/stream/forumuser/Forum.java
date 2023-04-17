@@ -6,7 +6,7 @@ import java.util.List;
 public class Forum {
 
 
-    //TODO dodać przypadki użytkowników niespełniających pozostałe filtry tj. data urodzenia, liczba postów)
+    // FIXED dodać przypadki użytkowników niespełniających pozostałe filtry tj. data urodzenia, liczba postów)
     private List<ForumUser> forumUsers = List.of(new ForumUser(1, "Joe", 'M', LocalDate.of(2002, 1,1), 3),
             new ForumUser(2, "Ann", 'F', LocalDate.of(2002, 1,1), 3),
             new ForumUser(3, "Mike", 'M', LocalDate.of(2021, 4,10), 192),
