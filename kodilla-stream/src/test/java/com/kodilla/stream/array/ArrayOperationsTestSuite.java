@@ -10,7 +10,7 @@ public class ArrayOperationsTestSuite {
     @Test
     void testGetAverage() {
         //given
-        int[] arr = {7, 1, 7, 1};
+        int[] arr = {7, 1, 7, 1, 2, 3, 4, 5, 67, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
         int[] arr1 = {1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1};
         int[] arr2 = {7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, -7};
 
@@ -21,10 +21,9 @@ public class ArrayOperationsTestSuite {
 
         //then
         //DONE  elementy ujemne
-        Assertions.assertEquals(4, average);
+        Assertions.assertEquals(13, average);
         Assertions.assertEquals(0.6, average1);
         Assertions.assertEquals(6.3, average2, 0.1);
-
 
     }
 
