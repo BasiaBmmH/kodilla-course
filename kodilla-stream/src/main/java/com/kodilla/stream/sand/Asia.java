@@ -2,11 +2,11 @@ package com.kodilla.stream.sand;
 
 import java.math.BigDecimal;
 
-public final class Europe implements SandStorage {
+public final class Asia implements SandStorage {
 
     @Override
     public BigDecimal getSandBeansQuantity() {
-        BigDecimal sandQuantity = new BigDecimal("12345678901234567890");
+        BigDecimal sandQuantity = new BigDecimal("98765432101234567890");
         return sandQuantity;
     }
 }
