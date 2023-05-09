@@ -11,19 +11,37 @@ public class ArrayOperationsTestSuite {
     void testGetAverage() {
         //given
         int[] arr = {7, 1, 7, 1, 2, 3, 4, 5, 67, 8, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20};
-        int[] arr1 = {1, 1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1};
-        int[] arr2 = {7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, -7};
 
         //when
         double average = getAverage(arr);
+
+        //then
+        Assertions.assertEquals(13, average);
+    }
+
+    @Test
+    void testGetNullAverage() {
+        //given
+        int[] arr1 = {};
+
+        //when
         double average1 = getAverage(arr1);
+
+        //then
+        Assertions.assertEquals(0.0, average1);
+
+    }
+
+    @Test
+    void testGetAverageWithMinusElements() {
+        //given
+        int[] arr2 = {-7, -7, -7, 7, -7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, -7};
+
+        //when
         double average2 = getAverage(arr2);
 
         //then
-        //DONE  elementy ujemne
-        Assertions.assertEquals(13, average);
-        Assertions.assertEquals(0.6, average1);
-        Assertions.assertEquals(6.3, average2, 0.1);
+        Assertions.assertEquals(3.81, average2, 0.01);
 
     }
 
