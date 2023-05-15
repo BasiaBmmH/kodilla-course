@@ -98,12 +98,14 @@ public class StreamMain {
   */
 
         Forum forum = new Forum();
-        Map<Integer, ForumUser> userMap = new HashMap<>();
+        ForumUser firstUser = forum.getUserList().get(0);
+
         List<ForumUser> filteredUsers = forum.getUserList().stream()
                 .filter(forumUser -> 'M' == forumUser.getSex())
                 //.filter(forumUser -> LocalDate.now().getYear() - 20 >= forumUser.getBirthDay().getYear());
                 .filter(forumUser -> LocalDate.now().minusYears(20).isAfter(forumUser.getBirthDay()))
                 .filter(forumUser -> forumUser.getPostsCount() > 0)
+                .map(user -> new ForumUser(user.getId(), user.getName(), user.getSex(), user.getBirthDay(), user.getPostsCount()))
                 .toList();
 
         firstUser.setSex('F');
