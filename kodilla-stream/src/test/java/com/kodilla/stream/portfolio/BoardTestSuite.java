@@ -11,6 +11,17 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class BoardTestSuite {
 
     @Test
+    void testAddTaskListAverageWorkingOnTask() {
+        //Given
+        Board project = prepareTestData();
+        //When
+
+        //Then
+
+    }
+
+
+    @Test
     void testAddTaskList() {
         //Given
         Board project = prepareTestData();
