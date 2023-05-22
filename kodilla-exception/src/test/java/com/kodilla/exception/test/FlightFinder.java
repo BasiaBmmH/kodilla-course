@@ -28,6 +28,13 @@ public class FlightFinder {
             System.out.println("Znajdz inny lot");
         }
 
+    static void tryToFindFlight(Flight flight) {
+        try {
+            findFlight(flight);
+        } catch (RouteNotFoundException e) {
+            System.out.println("Znajdz inny lot: " + e.getMessage());
+        }
+    }
 
 // GDN(Gdańsk), TRD(Trondheim), WAW(Warszawa), DXB(Dubai),
 // STN(Stamford), OSL(Oslo), KEF(Keflavík)
