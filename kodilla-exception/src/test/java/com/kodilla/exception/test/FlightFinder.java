@@ -51,10 +51,6 @@ public class FlightFinder {
 // GDN(Gdańsk), TRD(Trondheim), WAW(Warszawa), DXB(Dubai),
 // STN(Stamford), OSL(Oslo), KEF(Keflavík)
 
-//    static boolean validateFlightIsCorrect(Flight flight) throws RouteNotFoundException {
-//
-//    }
-
     static boolean findFlight(Flight flight) throws RouteNotFoundException {
         if (isDisabledAirport(flight.getDepartureAirport()) && isDisabledAirport(flight.getArrivalAirport())) {
             throw new RouteNotFoundException(String.format("Both airports are closed (%s, %s)", flight.getDepartureAirport(), flight.getArrivalAirport()));
@@ -72,4 +68,5 @@ public class FlightFinder {
         return !ACCESSIBLE_AIRPORTS.get(airport);
     }
 
+    //dodaje, żeby dało się wrzucić do repo, nie wiem czemu zmiany się nie pojawiły
 }
