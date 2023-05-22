@@ -2,11 +2,11 @@ package com.kodilla.exception.test;
 
 public class Flight {
     String departureAirport;
-    String arrivalAirpor;
+    String arrivalAirport;
 
-    public Flight(String departureAirport, String arrivalAirpor) {
+    public Flight(String departureAirport, String arrivalAirport) {
         this.departureAirport = departureAirport;
-        this.arrivalAirpor = arrivalAirpor;
+        this.arrivalAirport = arrivalAirport;
     }
 
 
@@ -14,7 +14,7 @@ public class Flight {
         return departureAirport;
     }
 
-    public String getArrivalAirpor() {
-        return arrivalAirpor;
+    public String getArrivalAirport() {
+        return arrivalAirport;
     }
 }

@@ -1,8 +1,22 @@
 package com.kodilla.exception.test;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class FlightFinder {
+
+    private static final HashMap<String, Boolean> ACCESSIBLE_AIRPORTS = new HashMap<>(
+            Map.of(
+                    "GDN", true,
+                    "TRD", true,
+                    "WAW", true,
+                    "DXB", true,
+                    "STN", false,
+                    "OSL", true,
+                    "KEF", false
+            )
+    );
+
     public static void main(String[] args) throws RouteNotFoundException {
 
         Flight flight1 = new Flight("GDN", "TRD");
@@ -14,19 +28,17 @@ public class FlightFinder {
         Flight flight7 = new Flight("STN", "OSL");
         Flight flight8 = new Flight("KEF", "STN");
 
-        try {
-            findFlight(flight1);
-            findFlight(flight2);
-            findFlight(flight3);
-            findFlight(flight4);
-            findFlight(flight5);
-            findFlight(flight6);
-            findFlight(flight7);
-            findFlight(flight8);
 
-        } catch (RouteNotFoundException e) {
-            System.out.println("Znajdz inny lot");
-        }
+        tryToFindFlight(flight1);
+        tryToFindFlight(flight2);
+        tryToFindFlight(flight3);
+        tryToFindFlight(flight4);
+        tryToFindFlight(flight5);
+        tryToFindFlight(flight6);
+        tryToFindFlight(flight7);
+        tryToFindFlight(flight8);
+
+    }
 
     static void tryToFindFlight(Flight flight) {
         try {
@@ -38,31 +50,26 @@ public class FlightFinder {
 
 // GDN(Gdańsk), TRD(Trondheim), WAW(Warszawa), DXB(Dubai),
 // STN(Stamford), OSL(Oslo), KEF(Keflavík)
-    }
 
-    static void findFlight(Flight flight) throws RouteNotFoundException {
-        HashMap<String, Boolean> accessibleAirports = new HashMap<>();
-        accessibleAirports.put("GDN", true);
-        accessibleAirports.put("TRD", true);
-        accessibleAirports.put("WAW", true);
-        accessibleAirports.put("DXB", true);
-        accessibleAirports.put("STN", false);
-        accessibleAirports.put("OSL", true);
-        accessibleAirports.put("KEF", false);
+//    static boolean validateFlightIsCorrect(Flight flight) throws RouteNotFoundException {
+//
+//    }
 
-        if (!accessibleAirports.get(flight.getDepartureAirport()) || !accessibleAirports.get(flight.getArrivalAirpor())) {
-            {
-                if (!accessibleAirports.get(flight.getDepartureAirport()) && !accessibleAirports.get(flight.getArrivalAirpor())) {
-                    System.out.println(flight.getDepartureAirport() + " and " + flight.getArrivalAirpor() + " are closed");
-                } else if (!accessibleAirports.get(flight.getDepartureAirport())) {
-                    System.out.println(flight.getDepartureAirport() + " is closed");
-
-                } else {
-                    System.out.println(flight.getArrivalAirpor() + " is closed");
-                }
-            }
+    static boolean findFlight(Flight flight) throws RouteNotFoundException {
+        if (isDisabledAirport(flight.getDepartureAirport()) && isDisabledAirport(flight.getArrivalAirport())) {
+            throw new RouteNotFoundException(String.format("Both airports are closed (%s, %s)", flight.getDepartureAirport(), flight.getArrivalAirport()));
+        } else if (isDisabledAirport(flight.getDepartureAirport())) {
+            throw new RouteNotFoundException(String.format("Departure airport is closed (%s)", flight.getDepartureAirport()));
+        } else if (isDisabledAirport(flight.getArrivalAirport())) {
+            throw new RouteNotFoundException(String.format("Arrival airport is closed (%s)", flight.getArrivalAirport()));
+        } else {
+            return Boolean.TRUE;
         }
 
+    }
+
+    private static boolean isDisabledAirport(String airport) {
+        return !ACCESSIBLE_AIRPORTS.get(airport);
     }
 
 }
