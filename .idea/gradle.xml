@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/kodilla-exception" />
+            <option value="$PROJECT_DIR$/kodilla-good-patterns" />
             <option value="$PROJECT_DIR$/kodilla-stream" />
             <option value="$PROJECT_DIR$/kodilla-testing" />
             <option value="$PROJECT_DIR$/kodilla-testing/user" />

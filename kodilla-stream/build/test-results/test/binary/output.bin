@@ -1,0 +1,20 @@
+[TaskList{name='To do',
+tasks=
+g[Task{title='Microservice for taking temperature', description='Write and test the microservice taking
+¤the temperaure from external service', assignedUser=User{username='developer1'}, creator=User{username='projectmanager1'}, created=2023-05-23, deadline=2023-07-12}
+Ð, Task{title='Temperatures entity', description='Prepare entity for temperatures', assignedUser=User{username='developer2'}, creator=User{username='projectmanager1'}, created=2023-05-23, deadline=2023-06-27}
+]
+}
+, TaskList{name='In progress',
+tasks=
+Ó[Task{title='HQLs for analysis', description='Prepare some HQL queries for analysis', assignedUser=User{username='developer1'}, creator=User{username='projectmanager1'}, created=2023-05-23, deadline=2023-06-07}
+Ñ, Task{title='Own logger', description='Refactor company logger to meet our needs', assignedUser=User{username='developer2'}, creator=User{username='projectmanager1'}, created=2023-06-02, deadline=2023-07-07}
+Ú, Task{title='Optimize searching', description='Archive data searching has to be optimized', assignedUser=User{username='developer3'}, creator=User{username='projectmanager1'}, created=2023-06-12, deadline=2023-06-17}
+]
+}
+, TaskList{name='Done',
+tasks=
+Ø[Task{title='Use Streams', description='use Streams rather than for-loops in predictions', assignedUser=User{username='developer3'}, creator=User{username='projectmanager1'}, created=2023-05-28, deadline=2023-06-10}
+]
+}
+]
