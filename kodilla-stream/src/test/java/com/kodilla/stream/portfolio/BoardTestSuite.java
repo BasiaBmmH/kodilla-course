@@ -15,9 +15,23 @@ class BoardTestSuite {
         //Given
         Board project = prepareTestData();
         //When
+        System.out.println(project.getTaskLists());
+        List<Long> tasksCreationDaysList = project.getTaskLists().stream()
+                .filter(taskList -> "In progress".equals(taskList.getName()))
+                .map(TaskList::getTasks)
+                .flatMap(tasks -> tasks.stream()
+                        .map(Task::getCreated))
+                .map(created -> LocalDate.now().toEpochDay() - created.toEpochDay())
+                .toList();
 
+        long average = tasksCreationDaysList.stream().mapToLong(Long::longValue).sum() / tasksCreationDaysList.size();
+
+        int listSize = tasksCreationDaysList.size();
+        long listSum = tasksCreationDaysList.stream().mapToLong(Long::longValue).sum();
+        long listAverage = listSum / listSize;
         //Then
-
+        assertEquals(10, listAverage);
+        assertEquals(average, listAverage);
     }
 
 
@@ -103,7 +117,7 @@ class BoardTestSuite {
                 user2,
                 LocalDate.now().minusDays(20),
                 LocalDate.now().plusDays(30));
-        Task task2 = new Task("HQLs for analysis",
+        Task inProgressTask1 = new Task("HQLs for analysis",
                 "Prepare some HQL queries for analysis",
                 user1,
                 user2,
@@ -115,13 +129,13 @@ class BoardTestSuite {
                 user2,
                 LocalDate.now().minusDays(20),
                 LocalDate.now().plusDays(15));
-        Task task4 = new Task("Own logger",
+        Task inProgressTask2 = new Task("Own logger",
                 "Refactor company logger to meet our needs",
                 user3,
                 user2,
                 LocalDate.now().minusDays(10),
                 LocalDate.now().plusDays(25));
-        Task task5 = new Task("Optimize searching",
+        Task inProgressTask3 = new Task("Optimize searching",
                 "Archive data searching has to be optimized",
                 user4,
                 user2,
@@ -139,9 +153,9 @@ class BoardTestSuite {
         taskListToDo.addTask(task1);
         taskListToDo.addTask(task3);
         TaskList taskListInProgress = new TaskList("In progress");
-        taskListInProgress.addTask(task5);
-        taskListInProgress.addTask(task4);
-        taskListInProgress.addTask(task2);
+        taskListInProgress.addTask(inProgressTask1);
+        taskListInProgress.addTask(inProgressTask2);
+        taskListInProgress.addTask(inProgressTask3);
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
 
@@ -152,4 +166,6 @@ class BoardTestSuite {
         project.addTaskList(taskListDone);
         return project;
     }
+
+
 }
