@@ -95,7 +95,7 @@ class BoardTestSuite {
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(Task::getCreated)
-                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
+                .filter(d -> !d.isAfter(LocalDate.now().minusDays(10)))
                 .count();
 
         //Then
@@ -104,61 +104,62 @@ class BoardTestSuite {
 
     private Board prepareTestData() {
         //users
-        User user1 = new User("developer1", "John Smith");
-        User user2 = new User("projectmanager1", "Nina White");
-        User user3 = new User("developer2", "Emilia Stephanson");
-        User user4 = new User("developer3", "Konrad Bridge");
+        User developer1 = new User("developer1", "John Smith");
+        User projectManager1 = new User("projectmanager1", "Nina White");
+        User developer2 = new User("developer2", "Emilia Stephanson");
+        User developer3 = new User("developer3", "Konrad Bridge");
 
         //tasks
-        Task task1 = new Task("Microservice for taking temperature",
+        Task todoTask1 = new Task("Microservice for taking temperature",
                 "Write and test the microservice taking\n" +
                         "the temperaure from external service",
-                user1,
-                user2,
+                developer1,
+                projectManager1,
                 LocalDate.now().minusDays(20),
                 LocalDate.now().plusDays(30));
         Task inProgressTask1 = new Task("HQLs for analysis",
                 "Prepare some HQL queries for analysis",
-                user1,
-                user2,
+                developer1,
+                projectManager1,
                 LocalDate.now().minusDays(20),
                 LocalDate.now().minusDays(5));
-        Task task3 = new Task("Temperatures entity",
+        Task todoTask2 = new Task("Temperatures entity",
                 "Prepare entity for temperatures",
-                user3,
-                user2,
+                developer2,
+                projectManager1,
                 LocalDate.now().minusDays(20),
                 LocalDate.now().plusDays(15));
         Task inProgressTask2 = new Task("Own logger",
                 "Refactor company logger to meet our needs",
-                user3,
-                user2,
+                developer2,
+                projectManager1,
                 LocalDate.now().minusDays(10),
                 LocalDate.now().plusDays(25));
         Task inProgressTask3 = new Task("Optimize searching",
                 "Archive data searching has to be optimized",
-                user4,
-                user2,
+                developer3,
+                projectManager1,
                 LocalDate.now(),
                 LocalDate.now().plusDays(5));
-        Task task6 = new Task("Use Streams",
+        Task doneTask = new Task("Use Streams",
                 "use Streams rather than for-loops in predictions",
-                user4,
-                user2,
+                developer3,
+                projectManager1,
                 LocalDate.now().minusDays(15),
                 LocalDate.now().minusDays(2));
 
         //taskLists
         TaskList taskListToDo = new TaskList("To do");
-        taskListToDo.addTask(task1);
-        taskListToDo.addTask(task3);
+        taskListToDo.addTask(todoTask1);
+        taskListToDo.addTask(todoTask2);
+
         TaskList taskListInProgress = new TaskList("In progress");
         taskListInProgress.addTask(inProgressTask1);
         taskListInProgress.addTask(inProgressTask2);
         taskListInProgress.addTask(inProgressTask3);
 
         TaskList taskListDone = new TaskList("Done");
-        taskListDone.addTask(task6);
+        taskListDone.addTask(doneTask);
 
         //board
         Board project = new Board("Project Weather Prediction");
