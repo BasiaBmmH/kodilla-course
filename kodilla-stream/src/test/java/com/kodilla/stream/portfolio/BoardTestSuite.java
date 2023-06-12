@@ -34,7 +34,6 @@ class BoardTestSuite {
         assertEquals(average, listAverage);
     }
 
-
     @Test
     void testAddTaskList() {
         //Given
