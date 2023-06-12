@@ -14,6 +14,7 @@ class BoardTestSuite {
     void testAddTaskListAverageWorkingOnTask() {
         //Given
         Board project = prepareTestData();
+
         //When
         System.out.println(project.getTaskLists());
         List<Long> tasksCreationDaysList = project.getTaskLists().stream()
@@ -29,6 +30,7 @@ class BoardTestSuite {
         int listSize = tasksCreationDaysList.size();
         long listSum = tasksCreationDaysList.stream().mapToLong(Long::longValue).sum();
         long listAverage = listSum / listSize;
+
         //Then
         assertEquals(10, listAverage);
         assertEquals(average, listAverage);
@@ -38,9 +40,8 @@ class BoardTestSuite {
     void testAddTaskList() {
         //Given
         Board project = prepareTestData();
-        //When
 
-        //Then
+        //When + Then
         assertEquals(3, project.getTaskLists().size());
     }
 
@@ -155,6 +156,7 @@ class BoardTestSuite {
         taskListInProgress.addTask(inProgressTask1);
         taskListInProgress.addTask(inProgressTask2);
         taskListInProgress.addTask(inProgressTask3);
+
         TaskList taskListDone = new TaskList("Done");
         taskListDone.addTask(task6);
 
