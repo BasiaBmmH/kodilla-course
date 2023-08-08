@@ -1,4 +1,4 @@
-package com.kodilla.spring.intro;
+package com.kodilla.intro;
 
 public class SpringIntroRunner {
 

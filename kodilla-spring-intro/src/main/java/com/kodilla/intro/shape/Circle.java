@@ -1,4 +1,4 @@
-package com.kodilla.spring.intro.shape;
+package com.kodilla.intro.shape;
 
 public class Circle implements Shape {
     @Override
