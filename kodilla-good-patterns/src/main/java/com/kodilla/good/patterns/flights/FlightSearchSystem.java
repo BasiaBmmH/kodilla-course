@@ -15,25 +15,22 @@ class FlightSearchSystem {
         flights.add(flight);
     }
 
-    public List<String> findCitiesFromCity(String departureCity) {
+    public List<Flight> findFlightsFromCity(String departureCity) {
         return flights.stream()
                 .filter(flight -> flight.getDepartureCity().equals(departureCity))
-                .map(Flight::getDestinationCity)
                 .collect(Collectors.toList());
     }
 
-    public List<String> findCitiesToCity(String destinationCity) {
+    public List<Flight> findFlightsToCity(String destinationCity) {
         return flights.stream()
                 .filter(flight -> flight.getDestinationCity().equals(destinationCity))
-                .map(Flight::getDepartureCity)
                 .collect(Collectors.toList());
     }
 
-    public List<String> findCitiesViaCity(String layoverCity, String destinationCity) {
+    public List<Flight> findFlightsViaCity(String layoverCity, String destinationCity) {
         return flights.stream()
                 .filter(flight -> flight.getLayoverCity() != null && flight.getLayoverCity().equals(layoverCity)
                         && flight.getDestinationCity().equals(destinationCity))
-                .map(Flight::getDepartureCity)
                 .collect(Collectors.toList());
     }
 }

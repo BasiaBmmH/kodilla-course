@@ -12,16 +12,16 @@ public class Main {
         flightSearchSystem.addFlight(new Flight("OSLO", "TRONDHEIM", "TROMSO"));
         flightSearchSystem.addFlight(new Flight("GDANSK", "TRONDHEIM", "TROMSO"));
 
-        List<String> citiesFromGdansk = flightSearchSystem.findCitiesFromCity("GDANSK");
+        List<Flight> citiesFromGdansk = flightSearchSystem.findFlightsFromCity("GDANSK");
         System.out.println("Flights from GDANSK: " + citiesFromGdansk);
 
-        List<String> citiesToKrakow = flightSearchSystem.findCitiesToCity("KRAKOW");
+        List<Flight> citiesToKrakow = flightSearchSystem.findFlightsToCity("KRAKOW");
         System.out.println("Flights to KRAKOW: " + citiesToKrakow);
 
-        List<String> citiesViaKrakowToWroclaw = flightSearchSystem.findCitiesViaCity("KRAKOW", "WROCLAW");
+        List<Flight> citiesViaKrakowToWroclaw = flightSearchSystem.findFlightsViaCity("KRAKOW", "WROCLAW");
         System.out.println("Flights via KRAKOW to WROCLAW: " + citiesViaKrakowToWroclaw);
 
-        List<String> citiesViaTrondheimToTromso = flightSearchSystem.findCitiesViaCity("TRONDHEIM","TROMSO");
+        List<Flight> citiesViaTrondheimToTromso = flightSearchSystem.findFlightsViaCity("TRONDHEIM","TROMSO");
         System.out.println("Flights via TRONDHEIM to TROMSO: " + citiesViaTrondheimToTromso);
     }
 }
