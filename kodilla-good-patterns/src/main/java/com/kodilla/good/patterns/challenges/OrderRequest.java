@@ -1,6 +1,4 @@
 package com.kodilla.good.patterns.challenges;
-
-// Klasa reprezentująca żądanie zamówienia
 class OrderRequest {
     private User user;
     private Product product;

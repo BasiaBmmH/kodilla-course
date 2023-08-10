@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges;
+package trynew.old;
 
 public class SteamInformerService {
     static void inform(GameProduct gameProduct) {

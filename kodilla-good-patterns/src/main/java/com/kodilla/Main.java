@@ -1,6 +1,6 @@
 package com.kodilla;
 
-import com.kodilla.good.patterns.challenges.ProductOrderService;
+import trynew.old.ProductOrderService;
 
 public class Main {
     public static void main(String[] args) {
