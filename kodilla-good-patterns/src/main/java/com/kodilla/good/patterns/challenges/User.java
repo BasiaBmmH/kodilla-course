@@ -1,11 +1,13 @@
 package com.kodilla.good.patterns.challenges;
 
-public class User {
-    private int iserID;
-    private String name;
+class User {
+    private final String username;
 
-    public User(int iserID, String name) {
-        this.iserID = iserID;
-        this.name = name;
+    public User(String username) {
+        this.username = username;
+    }
+
+    public String getUsername() {
+        return username;
     }
 }

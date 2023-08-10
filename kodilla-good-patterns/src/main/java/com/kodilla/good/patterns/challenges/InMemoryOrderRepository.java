@@ -1,4 +1,4 @@
-package com.kodilla.good.patterns.challenges2;
+package com.kodilla.good.patterns.challenges;
 
 class InMemoryOrderRepository implements OrderRepository {
     @Override
